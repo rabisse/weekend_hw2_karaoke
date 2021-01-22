@@ -11,3 +11,6 @@ class TestSong(unittest.TestCase):
     
     def test_song_artist(self):
         self.assertEqual("Haddaway", self.song.artist)
+
+    def test_give_song(self):
+        self.assertEqual("What Is Love by Haddaway", self.song.give_song())
