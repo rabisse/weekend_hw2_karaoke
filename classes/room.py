@@ -12,7 +12,7 @@ class Room:
 
     def add_song_to_song_queue(self, song):
         self.song_queue.append(song)
-        [print("The guest loves the song " + song.name + "!") for guest in self.occupants if guest.favorite_song == song.name]
+        return [guest.name + " loves the song " + song.name + "!" for guest in self.occupants if guest.favorite_song == song.name]
 
     def give_song_queue(self):
         return [song.give_song() for song in self.song_queue]
@@ -35,4 +35,3 @@ class Room:
         self.bill = 0
         self.occupants = []  #does this do the same thing as self.occupants.clear() ?
         print("Room is clear")
-

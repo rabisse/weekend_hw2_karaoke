@@ -24,10 +24,17 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(20, self.room.entry_fee)
     
     def test_add_song_to_song_queue(self):
+        self.room.add_song_to_song_queue(self.song_1)
+        self.assertEqual(1, len(self.room.song_queue))
+
+    def test_favorite_song_response(self):
         self.room.add_guest_to_room(self.guest_1)
-        self.room.add
-#        self.assertEqual("The guest loves the song What Is Love!", self.room.add_song_to_song_queue(self.song_1)
-        self.assertEqual(1, len(self.room.give_song_queue()))
+        self.assertEqual(["Steve Butabi loves the song What Is Love!"], self.room.add_song_to_song_queue(self.song_1))
+    # is this the best way to verify that this is true?
+
+    def test_not_favorite_song_add(self):
+        self.room.add_guest_to_room(self.guest_2)
+        self.assertEqual([], self.room.add_song_to_song_queue(self.song_1))
 
     def test_print_song_queue(self):
         self.room.add_song_to_song_queue(self.song_1)
@@ -72,7 +79,3 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(0, self.room.bill)
         self.assertEqual(0, self.room.num_of_occupants())
 
-
-
-
-#check guests in AND out from the rooms
