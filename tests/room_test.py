@@ -1,7 +1,11 @@
-import unittest
+# import unittest
 
-from classes.room import *
+# from classes.room import *
 
-class RoomTest(unittest.TestCase):
-    def setUp(self):
-        self.
+# class RoomTest(unittest.TestCase):
+#     def setUp(self):
+#         self.
+
+
+
+# #check in AND out guests from the rooms

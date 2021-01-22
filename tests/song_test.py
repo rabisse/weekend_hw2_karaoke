@@ -1,7 +1,13 @@
 import unittest
 
-from classes.song import *
+from classes.song import Song
 
-class SongTest(unittest.TestCase):
+class TestSong(unittest.TestCase):
     def setUp(self):
-        self.
+        self.song = Song("What Is Love", "Haddaway")
+
+    def test_song_name(self):
+        self.assertEqual("What Is Love", self.song.name)
+    
+    def test_song_artist(self):
+        self.assertEqual("Haddaway", self.song.artist)
