@@ -3,5 +3,3 @@ class Guest:
         self.name = name
         self.wallet = wallet
         self.favorite_song = favorite_song
-
-# add list of songs sung?

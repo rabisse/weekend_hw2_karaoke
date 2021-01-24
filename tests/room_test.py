@@ -30,7 +30,6 @@ class TestRoom(unittest.TestCase):
     def test_favorite_song_response(self):
         self.room.add_guest_to_room(self.guest_1)
         self.assertEqual(["Steve Butabi loves the song What Is Love!"], self.room.add_song_to_song_queue(self.song_1))
-    # is this the best way to verify that this is true?
 
     def test_not_favorite_song_add(self):
         self.room.add_guest_to_room(self.guest_2)
@@ -71,11 +70,9 @@ class TestRoom(unittest.TestCase):
         self.room.add_guest_to_room(self.guest_3)
         self.assertEqual(0, self.room.num_of_occupants())
 
-
     def test_clear_out_room(self):
         self.room.add_guest_to_room(self.guest_1)
         self.room.add_guest_to_room(self.guest_2)
         self.room.clear_out_room()
         self.assertEqual(0, self.room.bill)
         self.assertEqual(0, self.room.num_of_occupants())
-

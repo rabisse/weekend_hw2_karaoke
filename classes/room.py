@@ -13,8 +13,8 @@ class Room:
     def add_song_to_song_queue(self, song):
         self.song_queue.append(song)
         fav_song = [f"{guest.name} loves the song {song.name}!" for guest in self.occupants if guest.favorite_song == song.name]
-        print(fav_song)
-        return fav_song    # how can I simplify this?
+        if fav_song: print(fav_song)
+        return fav_song  # how can I simplify this to make it print and be that what I test against?
 
     def give_song_queue(self):
         return [song.give_song() for song in self.song_queue]
@@ -36,4 +36,5 @@ class Room:
     def clear_out_room(self):
         self.bill = 0
         self.occupants = []  #does this do the same thing as self.occupants.clear() ?
+        self.song_queue = []
         print("Room is clear")

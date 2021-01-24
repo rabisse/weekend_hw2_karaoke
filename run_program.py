@@ -23,14 +23,17 @@ def print_menu():
     print("4: Clear Out Room")
     print("(Q)uit\n")
 
+
 while (True):
     print_menu()
     option = input("Select one of the above options or (Q)uit: ")
     if (option.lower() == 'q'):
         break
 
+
     if option == '1':
         print(f"\n{room.name}: \nCapacity: {room.capacity} \nOccupants: {room.num_of_occupants()} {[guest.name for guest in room.occupants]} \nSong Queue: {room.give_song_queue()} \nBill: {room.bill} ")
+
 
     elif option == '2':
         print(f"\nGuests: \n1: {guest_list[0].name} \n2: {guest_list[1].name} \n3: {guest_list[2].name} \n4: {guest_list[3].name}")     # what is best way to do this for a long guest list? Using index means that removing a guest from list when added returns an error when trying to list it again
@@ -60,13 +63,17 @@ while (True):
         song_selection = input("Add which of the above songs to the queue: \n")
         if (song_selection == '1'):
             room.add_song_to_song_queue(song_1)
+            print("Song added")
         elif (song_selection == '2'):
             room.add_song_to_song_queue(song_2)
+            print("Song added")
         else:
             print("Invalid Input - choose another option")
 
+
     elif option == '4':
         room.clear_out_room()
+
 
     else:
         print("Invalid Input - choose another option")
