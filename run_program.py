@@ -6,6 +6,7 @@ room = Room("Night at the Roxbury Room", 2, 20)
 
 song_1 = Song("What Is Love", "Haddaway")
 song_2 = Song("Stayin Alive", "The Bee Gees")
+available_songs = [song_1, song_2]
 
 guest_1 = Guest("Steve Butabi", 100, "What Is Love")
 guest_2 = Guest("Doug Butabi", 80, "Stayin Alive")
@@ -18,12 +19,12 @@ def print_menu():
     print("\nCodeClan Caraoke - Night at the Roxbury Room:")
     print("1: Room Status")
     print("2: Add Guest")
-    # print("3: Get Completed Tasks")
+    print("3: Add Song to Queue")
     # print("4: Mark Task as Complete")
     # print("5: Get Tasks Which Take Longer Than a Given Time")
     # print("6: Find Task by Description")
     # print("7: Add a new Task to list")
-    print("(Q)uit")
+    print("(Q)uit\n")
 
 while (True):
     print_menu()
@@ -32,14 +33,14 @@ while (True):
         break
 
     if option == '1':
-        print(f"\n{room.name}: \nCapacity: {room.capacity} \nOccupants: {room.num_of_occupants()} {[guest.name for guest in room.occupants]} \nSong Queue: {room.song_queue} \nBill: {room.bill} ")
+        print(f"\n{room.name}: \nCapacity: {room.capacity} \nOccupants: {room.num_of_occupants()} {[guest.name for guest in room.occupants]} \nSong Queue: {room.give_song_queue()} \nBill: {room.bill} ")
 
     elif option == '2':
         print(f"\nGuests: \n1: {guest_list[0].name} \n2: {guest_list[1].name} \n3: {guest_list[2].name} \n4: {guest_list[3].name}")     # what is best way to do this for a long guest list? Using index means that removing a guest from list when added returns an error when trying to list it again
         guest_selection = input("Which of the above guests: \n")
         if (guest_selection == '1'):
-#            room.add_guest_to_room(guest_1)
-            guest_list.remove(guest_1)
+            room.add_guest_to_room(guest_1)
+#            guest_list.remove(guest_1)
         elif (guest_selection == '2'):
             room.add_guest_to_room(guest_2)
 #            guest_list.remove(guest_2)
@@ -54,9 +55,18 @@ while (True):
 
 
     elif option == '3':
-        
-
-
+        print(f"\nAvailable Songs:")
+        counter = 1
+        for song in available_songs:    # [print(song.give_song()) for song in available_songs]
+            print(f"{counter}: {song.give_song()}")
+            counter += 1
+        song_selection = input("Add which of the above songs to the queue: \n")
+        if (song_selection == '1'):
+            room.add_song_to_song_queue(song_1)
+        elif (song_selection == '2'):
+            room.add_song_to_song_queue(song_2)
+        else:
+            print("Invalid Input - choose another option")
 
 
     # elif option == '4':

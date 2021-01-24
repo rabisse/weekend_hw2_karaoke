@@ -12,7 +12,9 @@ class Room:
 
     def add_song_to_song_queue(self, song):
         self.song_queue.append(song)
-        return [guest.name + " loves the song " + song.name + "!" for guest in self.occupants if guest.favorite_song == song.name]
+        fav_song = [f"{guest.name} loves the song {song.name}!" for guest in self.occupants if guest.favorite_song == song.name]
+        print(fav_song)
+        return fav_song    # how can I simplify this?
 
     def give_song_queue(self):
         return [song.give_song() for song in self.song_queue]
