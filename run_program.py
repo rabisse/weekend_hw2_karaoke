@@ -20,10 +20,7 @@ def print_menu():
     print("1: Room Status")
     print("2: Add Guest")
     print("3: Add Song to Queue")
-    # print("4: Mark Task as Complete")
-    # print("5: Get Tasks Which Take Longer Than a Given Time")
-    # print("6: Find Task by Description")
-    # print("7: Add a new Task to list")
+    print("4: Clear Out Room")
     print("(Q)uit\n")
 
 while (True):
@@ -68,22 +65,8 @@ while (True):
         else:
             print("Invalid Input - choose another option")
 
+    elif option == '4':
+        room.clear_out_room()
 
-    # elif option == '4':
-    #     description = input("Enter task description to search for: ")
-    #     task = get_task_with_description(tasks, description)
-    #     if task != "Task Not Found":
-    #         mark_task_complete(task)
-    # elif option == '5':
-    #     time = int(input("Enter task duration: "))
-    #     print_list(get_tasks_taking_longer_than(tasks, time))
-    # elif option == '6':
-    #     description = input("Enter task description to search for: ")
-    #     print(get_task_with_description(tasks, description))
-    # elif option == '7':
-    #     description = input("Enter description: ")
-    #     time_taken = int(input("Enter time taken: "))
-    #     task = create_task(description, time_taken)
-    #     tasks.append(task)
     else:
         print("Invalid Input - choose another option")
